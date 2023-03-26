@@ -1,0 +1,13 @@
+function main(input) {
+  input = input.split('\n')[1].split(' ').map(e => +e);
+  const arr = new Object();
+  for(i of input)
+    arr[i] = !!arr[i] ? arr[i] + 1 : 1;
+  let count = 0;
+  for(i of Object.values(arr)){
+    count += (i / 2) | 0;
+  }
+  console.log(count);
+}
+
+main(require("fs").readFileSync("/dev/stdin", "utf8"));
